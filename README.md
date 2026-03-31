@@ -22,6 +22,7 @@ Mỗi system thường sẽ gồm một hoặc nhiều phần sau:
 | System | Nội dung | Trạng thái |
 | --- | --- | --- |
 | [TinyURL](./TinyURL) | URL shortener với design note + advanced implementation bằng .NET, Cassandra, Redis, ZooKeeper, Nginx | Available |
+| [NotificationSystem](./NotificationSystem) |  | Unavailable |
 
 ## Cách đọc repo
 

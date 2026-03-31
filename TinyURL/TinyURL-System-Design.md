@@ -136,3 +136,4 @@ From the data model we can see that the data is not deeply nested or interrelate
 - Add random suffix to the short URL to prevent hackers predicting URLs.
 - Will give rise to longer URLs but the tradeoff between URL length and security can be worth discussing in the interview.
 
+*Inspired by TechPrep*
