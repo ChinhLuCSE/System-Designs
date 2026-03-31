@@ -21,13 +21,13 @@ This example will cover two solutions, a basic implementation and an advanced im
 
 ## Requirements
 
-# Functional Requirements
+### Functional Requirements
 - Given a long URL create a short URL
 - Given a short URL redirect to a long URL
-# Non Functional Requirements
+### Non Functional Requirements
 - Very low latency
 - Very high availability
-# Not covered
+### Not covered
 - Updating of URLs
 - Deleting of URLs
 
@@ -92,16 +92,16 @@ From the data model we can see that the data is not deeply nested or interrelate
 
 ![advanced-implementation-tiny-url](./images/advanced-implementation-tiny-url.avif)
 
-# ZooKeeper
+### ZooKeeper
 - Instead of having distributed count caches, ZooKeeper will be used instead. ZooKeeper can be used as a centralized service for maintaining configuration information and synchronization in a distributed setting.
 - In this architecture ZooKeeper will being used to maintain number ranges (1 million values per range). When a web sever comes online it will reach out to the ZooKeeper to get a range. Once given a range a web server will use those numbers to generate short URLs. This will allow us to avoid the collision problem encountered in the previous design.
 - Even if a web server were to go down straight after being given a range and those million values were lost, given that we have such a large number of values (3.5 trillion) it isn't really an issue.
 - An interviewer could point out that the ZooKeeper is now a single point of failure. So we could horizontally scale instances of the ZooKeeper, but it is also important to remember that unlike the count cache which received a request every time a new URL was to be created. A web server will only make a request to ZooKeeper to get a range of values which reduces the load by a factor of a million (the range chosen).
 
-# Database Selection
+### Database Selection
 - An SQL database like MySQL or PostgreSQL could be a valid choice of database in our design but we may have to introduce sharding to handle the high read volume. However, in this particular case given the high read volume a NoSQL database like Cassandra may be a better choice.An SQL database like MySQL or PostgreSQL could be a valid choice of database in our design but we may have to introduce sharding to handle the high read volume. However, in this particular case given the high read volume a NoSQL database like Cassandra may be a better choice.
 
-# Caching
+### Caching
 - If we wanted to further reduce the load on the database we could also introduce a cache where popular short URLs and their corresponding long URLs are stored. Popular choices of caches include Memcached or Redis.
 - A cache eviction policy of least recently used (LRU) could be an adequate solution for this system.
 
