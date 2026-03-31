@@ -9,7 +9,7 @@ Advanced implementation cho bài toán TinyURL với stack:
 - Nginx làm load balancer trước 2 API instances
 - Docker Compose để chạy local nhanh
 
-System design: [TinyURL-System-Design.md](/Users/ADMIN/Desktop/Projects/System-Designs/TinyURL/TinyURL-System-Design.md)
+System design: [TinyURL-System-Design.md](./TinyURL-System-Design.md)
 
 ## Kiến trúc
 

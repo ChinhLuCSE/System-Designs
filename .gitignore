@@ -1,0 +1,43 @@
+# Build artifacts
+bin/
+obj/
+out/
+dist/
+build/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDE / editor
+.vs/
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Test / coverage
+TestResults/
+coverage/
+coverage-report/
+*.coverage
+*.coveragexml
+
+# Package caches
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment / local config
+.env
+.env.*
+
+# Docker overrides for local development
+docker-compose.override.yml
