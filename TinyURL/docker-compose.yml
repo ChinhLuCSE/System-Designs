@@ -1,0 +1,115 @@
+services:
+  cassandra:
+    image: cassandra:5.0
+    environment:
+      CASSANDRA_CLUSTER_NAME: tinyurl-cluster
+      CASSANDRA_DC: dc1
+      CASSANDRA_RACK: rack1
+      MAX_HEAP_SIZE: 512M
+      HEAP_NEWSIZE: 128M
+    healthcheck:
+      test: ["CMD-SHELL", "cqlsh -e \"DESCRIBE KEYSPACES\""]
+      interval: 20s
+      timeout: 15s
+      retries: 15
+      start_period: 60s
+    networks:
+      - tinyurl
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes", "--maxmemory-policy", "allkeys-lru"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - tinyurl
+
+  zookeeper:
+    image: zookeeper:3.9.5
+    environment:
+      ZOO_4LW_COMMANDS_WHITELIST: srvr,ruok,mntr,conf
+    healthcheck:
+      test: ["CMD-SHELL", "zkServer.sh status"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks:
+      - tinyurl
+
+  tinyurl-api-1:
+    build:
+      context: .
+      dockerfile: TinyURL.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      TinyUrl__PublicBaseUrl: http://localhost:8080
+      Cassandra__ContactPoints__0: cassandra
+      Cassandra__Port: 9042
+      Cassandra__Keyspace: tinyurl
+      Cassandra__TableName: urls
+      Cassandra__MaxRetries: 15
+      Redis__Configuration: redis:6379
+      Redis__DefaultTtl: 1.00:00:00
+      ZooKeeper__ConnectionString: zookeeper:2181
+      ZooKeeper__SessionTimeoutMs: 15000
+      ZooKeeper__InitialValue: 1
+      ZooKeeper__RangeSize: 1000000
+      ZooKeeper__MaxRetries: 15
+    depends_on:
+      cassandra:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      zookeeper:
+        condition: service_healthy
+    networks:
+      - tinyurl
+
+  tinyurl-api-2:
+    build:
+      context: .
+      dockerfile: TinyURL.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      TinyUrl__PublicBaseUrl: http://localhost:8080
+      Cassandra__ContactPoints__0: cassandra
+      Cassandra__Port: 9042
+      Cassandra__Keyspace: tinyurl
+      Cassandra__TableName: urls
+      Cassandra__MaxRetries: 15
+      Redis__Configuration: redis:6379
+      Redis__DefaultTtl: 1.00:00:00
+      ZooKeeper__ConnectionString: zookeeper:2181
+      ZooKeeper__SessionTimeoutMs: 15000
+      ZooKeeper__InitialValue: 1
+      ZooKeeper__RangeSize: 1000000
+      ZooKeeper__MaxRetries: 15
+    depends_on:
+      cassandra:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      zookeeper:
+        condition: service_healthy
+    networks:
+      - tinyurl
+
+  nginx:
+    image: nginx:1.29-alpine
+    depends_on:
+      - tinyurl-api-1
+      - tinyurl-api-2
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - tinyurl
+
+networks:
+  tinyurl:
+    driver: bridge

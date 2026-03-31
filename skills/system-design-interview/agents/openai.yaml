@@ -1,0 +1,4 @@
+interface:
+  display_name: "System Design Interview"
+  short_description: "Draft structured system design answers"
+  default_prompt: "Use $system-design-interview to draft a system design answer for TinyURL using only the sections I request."
