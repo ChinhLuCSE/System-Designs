@@ -66,3 +66,13 @@ curl http://localhost:8080/api/notifications/<NOTIFICATION_ID> \
 ## Third-party prep
 
 Provider integrations are intentionally mocked in v1. Preparation work for real providers is documented in [docs/ThirdParty-Preparation.md](./docs/ThirdParty-Preparation.md).
+
+## Documentation
+
+For architecture and onboarding docs, start here:
+
+- [docs/](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs)
+- [System-Components-Overview.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/System-Components-Overview.md)
+- [Onboarding-Path.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/Onboarding-Path.md)
+- [Sequence-Diagrams.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/Sequence-Diagrams.md)
+- [ThirdParty-Preparation.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/ThirdParty-Preparation.md)
