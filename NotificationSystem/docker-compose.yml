@@ -1,0 +1,207 @@
+services:
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: notification-nginx
+    depends_on:
+      - notification-api
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./deploy/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+
+  notification-api:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+      args:
+        PROJECT_PATH: src/NotificationSystem.Api/NotificationSystem.Api.csproj
+        APP_DLL: NotificationSystem.Api.dll
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_ENVIRONMENT: Development
+      DOTNET_RUNNING_IN_CONTAINER: "true"
+      Infrastructure__Kafka__BootstrapServers: kafka:9092
+      Infrastructure__Redis__ConnectionString: redis:6379
+      Infrastructure__MySql__ConnectionString: Server=mysql;Port=3306;Database=notifications;User=root;Password=root;
+      Infrastructure__Cassandra__ContactPoints: cassandra
+      Infrastructure__Cassandra__Port: 9042
+      Infrastructure__Auth__Issuer: notification-dev-issuer
+      Infrastructure__Auth__Audience: notification-internal-clients
+      Infrastructure__Auth__SigningKey: super-secret-dev-signing-key-with-at-least-32-chars
+    depends_on:
+      - mysql
+      - redis
+      - kafka
+      - cassandra
+    restart: unless-stopped
+
+  notification-processor:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+      args:
+        PROJECT_PATH: src/NotificationSystem.Processor/NotificationSystem.Processor.csproj
+        APP_DLL: NotificationSystem.Processor.dll
+    environment:
+      DOTNET_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      Infrastructure__Kafka__BootstrapServers: kafka:9092
+      Infrastructure__Redis__ConnectionString: redis:6379
+      Infrastructure__MySql__ConnectionString: Server=mysql;Port=3306;Database=notifications;User=root;Password=root;
+      Infrastructure__Cassandra__ContactPoints: cassandra
+      Infrastructure__Cassandra__Port: 9042
+    depends_on:
+      - mysql
+      - redis
+      - kafka
+      - cassandra
+    restart: unless-stopped
+
+  worker-email:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+      args:
+        PROJECT_PATH: src/NotificationSystem.Worker.Email/NotificationSystem.Worker.Email.csproj
+        APP_DLL: NotificationSystem.Worker.Email.dll
+    environment:
+      DOTNET_ENVIRONMENT: Development
+      Infrastructure__Kafka__BootstrapServers: kafka:9092
+      Infrastructure__Redis__ConnectionString: redis:6379
+      Infrastructure__MySql__ConnectionString: Server=mysql;Port=3306;Database=notifications;User=root;Password=root;
+      Infrastructure__Cassandra__ContactPoints: cassandra
+      Infrastructure__Cassandra__Port: 9042
+    depends_on:
+      - mysql
+      - redis
+      - kafka
+      - cassandra
+    restart: unless-stopped
+
+  worker-sms:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+      args:
+        PROJECT_PATH: src/NotificationSystem.Worker.Sms/NotificationSystem.Worker.Sms.csproj
+        APP_DLL: NotificationSystem.Worker.Sms.dll
+    environment:
+      DOTNET_ENVIRONMENT: Development
+      Infrastructure__Kafka__BootstrapServers: kafka:9092
+      Infrastructure__Redis__ConnectionString: redis:6379
+      Infrastructure__MySql__ConnectionString: Server=mysql;Port=3306;Database=notifications;User=root;Password=root;
+      Infrastructure__Cassandra__ContactPoints: cassandra
+      Infrastructure__Cassandra__Port: 9042
+    depends_on:
+      - mysql
+      - redis
+      - kafka
+      - cassandra
+    restart: unless-stopped
+
+  worker-push:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+      args:
+        PROJECT_PATH: src/NotificationSystem.Worker.Push/NotificationSystem.Worker.Push.csproj
+        APP_DLL: NotificationSystem.Worker.Push.dll
+    environment:
+      DOTNET_ENVIRONMENT: Development
+      Infrastructure__Kafka__BootstrapServers: kafka:9092
+      Infrastructure__Redis__ConnectionString: redis:6379
+      Infrastructure__MySql__ConnectionString: Server=mysql;Port=3306;Database=notifications;User=root;Password=root;
+      Infrastructure__Cassandra__ContactPoints: cassandra
+      Infrastructure__Cassandra__Port: 9042
+    depends_on:
+      - mysql
+      - redis
+      - kafka
+      - cassandra
+    restart: unless-stopped
+
+  audit-logger:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+      args:
+        PROJECT_PATH: src/NotificationSystem.AuditLogger/NotificationSystem.AuditLogger.csproj
+        APP_DLL: NotificationSystem.AuditLogger.dll
+    environment:
+      DOTNET_ENVIRONMENT: Development
+      Infrastructure__Kafka__BootstrapServers: kafka:9092
+      Infrastructure__Redis__ConnectionString: redis:6379
+      Infrastructure__MySql__ConnectionString: Server=mysql;Port=3306;Database=notifications;User=root;Password=root;
+      Infrastructure__Cassandra__ContactPoints: cassandra
+      Infrastructure__Cassandra__Port: 9042
+    depends_on:
+      - mysql
+      - redis
+      - kafka
+      - cassandra
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.4
+    container_name: notification-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: notifications
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7.4-alpine
+    container_name: notification-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+
+  kafka:
+    image: confluentinc/cp-kafka:7.7.0
+    container_name: notification-kafka
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://kafka:9092,CONTROLLER://kafka:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+    ports:
+      - "9092:9092"
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+
+  cassandra:
+    image: cassandra:5.0
+    container_name: notification-cassandra
+    environment:
+      CASSANDRA_CLUSTER_NAME: notification-cluster
+      CASSANDRA_DC: datacenter1
+      CASSANDRA_ENDPOINT_SNITCH: GossipingPropertyFileSnitch
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra-data:/var/lib/cassandra
+
+volumes:
+  mysql-data:
+  redis-data:
+  kafka-data:
+  cassandra-data:

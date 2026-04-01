@@ -135,3 +135,5 @@ Again this database will be write heavy with bulk read, a NoSQL database like Ca
 
 - Basic vs Advanced Implementation
 + In some interviews there may not be enough time or the interviewer may not want the additional services implemented in the Advanced Implementation like prioritisation, auditing, or analytics, so make sure to ask clarifying questions early to determine which implementation would best suit the interview.
+
+*Inspired by TechPrep*

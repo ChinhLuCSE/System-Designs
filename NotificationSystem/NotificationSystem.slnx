@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/NotificationSystem.Api/NotificationSystem.Api.csproj" />
+    <Project Path="src/NotificationSystem.AuditLogger/NotificationSystem.AuditLogger.csproj" />
+    <Project Path="src/NotificationSystem.Data/NotificationSystem.Data.csproj" />
+    <Project Path="src/NotificationSystem.Processor/NotificationSystem.Processor.csproj" />
+    <Project Path="src/NotificationSystem.Shared/NotificationSystem.Shared.csproj" />
+    <Project Path="src/NotificationSystem.Worker.Email/NotificationSystem.Worker.Email.csproj" />
+    <Project Path="src/NotificationSystem.Worker.Push/NotificationSystem.Worker.Push.csproj" />
+    <Project Path="src/NotificationSystem.Worker.Sms/NotificationSystem.Worker.Sms.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/NotificationSystem.Tests/NotificationSystem.Tests.csproj" />
+  </Folder>
+</Solution>
