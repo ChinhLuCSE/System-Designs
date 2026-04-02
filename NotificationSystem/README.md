@@ -71,8 +71,8 @@ Provider integrations are intentionally mocked in v1. Preparation work for real 
 
 For architecture and onboarding docs, start here:
 
-- [docs/](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs)
-- [System-Components-Overview.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/System-Components-Overview.md)
-- [Onboarding-Path.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/Onboarding-Path.md)
-- [Sequence-Diagrams.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/Sequence-Diagrams.md)
-- [ThirdParty-Preparation.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/ThirdParty-Preparation.md)
+- [docs/](./docs)
+- [System-Components-Overview.md](./docs/System-Components-Overview.md)
+- [Onboarding-Path.md](./docs/Onboarding-Path.md)
+- [Sequence-Diagrams.md](./docs/Sequence-Diagrams.md)
+- [ThirdParty-Preparation.md](./docs/ThirdParty-Preparation.md)

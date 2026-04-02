@@ -416,13 +416,13 @@ Build hiện vẫn có warning từ dependency `Newtonsoft.Json` transitively đ
 
 Nếu muốn hiểu nhanh nhất:
 
-1. [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/README.md)
-2. [Notification-System-Design.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/Notification-System-Design.md)
-3. [Program.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Api/Program.cs)
-4. [NotificationProcessingService.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/NotificationProcessingService.cs)
-5. [ChannelDeliveryService.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/ChannelDeliveryService.cs)
-6. [MySqlNotificationRepository.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Data/Persistence/MySqlNotificationRepository.cs)
-7. [docker-compose.yml](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docker-compose.yml)
+1. [README.md](../README.md)
+2. [Notification-System-Design.md](../Notification-System-Design.md)
+3. [Program.cs](../src/NotificationSystem.Api/Program.cs)
+4. [NotificationProcessingService.cs](../src/NotificationSystem.Shared/Services/NotificationProcessingService.cs)
+5. [ChannelDeliveryService.cs](../src/NotificationSystem.Shared/Services/ChannelDeliveryService.cs)
+6. [MySqlNotificationRepository.cs](../src/NotificationSystem.Data/Persistence/MySqlNotificationRepository.cs)
+7. [docker-compose.yml](../docker-compose.yml)
 
 ## 12. Tóm tắt ngắn
 

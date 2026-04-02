@@ -128,7 +128,7 @@ sequenceDiagram
 
 Nếu đang onboarding:
 
-- đọc [System-Components-Overview.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/System-Components-Overview.md) trước
+- đọc [System-Components-Overview.md](./System-Components-Overview.md) trước
 - sau đó xem doc này để chuyển từ “đọc mô tả” sang “nhìn flow”
 
 Nếu đang debug:
@@ -139,6 +139,6 @@ Nếu đang debug:
 
 ## 5. Tài liệu liên quan
 
-- [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/README.md)
-- [System-Components-Overview.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/System-Components-Overview.md)
-- [Onboarding-Path.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/Onboarding-Path.md)
+- [README.md](../README.md)
+- [System-Components-Overview.md](./System-Components-Overview.md)
+- [Onboarding-Path.md](./Onboarding-Path.md)

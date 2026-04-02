@@ -59,22 +59,22 @@ From the data model we can see that the data is not deeply nested or interrelate
 1. How long should the URL be?
     - Need to know the scale of the application to answer this question.
     - Example: 1,000 URLs generated per second.
-        + 1,000 * 60 * 60 * 24 * 365 = 31.5 billion URLs created each year
-        + 10 to 1 read to write requests means ≈ 300 billion reads per year
+          - 1,000 * 60 * 60 * 24 * 365 = 31.5 billion URLs created each year
+          - 10 to 1 read to write requests means ≈ 300 billion reads per year
 
 2. What characters can we use?
     - Alphanumeric:
-    + a - z: 26 characters
-    + A - Z: 26 characters
-    + 0 - 9: 10 characters
-    + Total: 62 characters
+      - a - z: 26 characters
+      - A - Z: 26 characters
+      - 0 - 9: 10 characters
+      - Total: 62 characters
 
     - Unique short URLs (varying characters):
-    + 1 character: 621 → 62 URLs
-    + 2 characters: 622 → 3,844 URLs
-    + ...
-    + 6 characters: 626 → ~56 billion URLs
-    + 7 characters: 627 → ~3.5 trillion URLs
+      - 1 character: 621 → 62 URLs
+      - 2 characters: 622 → 3,844 URLs
+      - ...
+      - 6 characters: 626 → ~56 billion URLs
+      - 7 characters: 627 → ~3.5 trillion URLs
 
 ## Basic Implementation
 

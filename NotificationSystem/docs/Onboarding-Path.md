@@ -18,8 +18,8 @@ Sau khoảng 30-45 phút, người đọc nên hiểu được:
 
 Đọc:
 
-- [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/README.md)
-- [Notification-System-Design.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/Notification-System-Design.md)
+- [README.md](./README.md)
+- [Notification-System-Design.md](./Notification-System-Design.md)
 
 Mục tiêu:
 
@@ -31,7 +31,7 @@ Mục tiêu:
 
 Đọc:
 
-- [System-Components-Overview.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/System-Components-Overview.md)
+- [System-Components-Overview.md](./docs/System-Components-Overview.md)
 
 Mục tiêu:
 
@@ -44,10 +44,10 @@ Mục tiêu:
 
 Đọc theo thứ tự:
 
-1. [Program.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Api/Program.cs)
-2. [Program.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Processor/Program.cs)
-3. [Program.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Worker.Email/Program.cs)
-4. [Program.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.AuditLogger/Program.cs)
+1. [Program.cs](../src/NotificationSystem.Api)
+2. [Program.cs](../src/NotificationSystem.Processor)
+3. [Program.cs](../src/NotificationSystem.Worker.Email)
+4. [Program.cs](../src/NotificationSystem.AuditLogger)
 
 Mục tiêu:
 
@@ -59,14 +59,14 @@ Mục tiêu:
 
 Đọc:
 
-- [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Api/README.md)
-- [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Processor/README.md)
-- [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Worker.Email/README.md)
-- [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Worker.Sms/README.md)
-- [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Worker.Push/README.md)
-- [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.AuditLogger/README.md)
-- [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/README.md)
-- [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Data/README.md)
+- [README.md](../src/NotificationSystem.Api/README.md)
+- [README.md](../src/NotificationSystem.Processor/README.md)
+- [README.md](../src/NotificationSystem.Worker.Email/README.md)
+- [README.md](../src/NotificationSystem.Worker.Sms/README.md)
+- [README.md](../src/NotificationSystem.Worker.Push/README.md)
+- [README.md](../src/NotificationSystem.AuditLogger/README.md)
+- [README.md](../src/NotificationSystem.Shared/README.md)
+- [README.md](../src/NotificationSystem.Data/README.md)
 
 Mục tiêu:
 
@@ -79,11 +79,11 @@ Mục tiêu:
 
 Đọc theo thứ tự:
 
-1. [Contracts.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Models/Contracts.cs)
-2. [Enums.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Models/Enums.cs)
-3. [NotificationProcessingService.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/NotificationProcessingService.cs)
-4. [ChannelDeliveryService.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/ChannelDeliveryService.cs)
-5. [FakeNotificationProviders.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/FakeNotificationProviders.cs)
+1. [Contracts.cs](../src/NotificationSystem.Shared/Models/Contracts.cs)
+2. [Enums.cs](../src/NotificationSystem.Shared/Models/Enums.cs)
+3. [NotificationProcessingService.cs](../src/NotificationSystem.Shared/Services/NotificationProcessingService.cs)
+4. [ChannelDeliveryService.cs](../src/NotificationSystem.Shared/Services/ChannelDeliveryService.cs)
+5. [FakeNotificationProviders.cs](../src/NotificationSystem.Shared/Services/FakeNotificationProviders.cs)
 
 Mục tiêu:
 
@@ -95,9 +95,9 @@ Mục tiêu:
 
 Đọc:
 
-- [MySqlNotificationRepository.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Data/Persistence/MySqlNotificationRepository.cs)
-- [CassandraAuditRepository.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Data/Persistence/CassandraAuditRepository.cs)
-- [MySqlConnectionFactory.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Data/Persistence/MySqlConnectionFactory.cs)
+- [MySqlNotificationRepository.cs](../src/NotificationSystem.Data/Persistence/MySqlNotificationRepository.cs)
+- [CassandraAuditRepository.cs](../src/NotificationSystem.Data/Persistence/CassandraAuditRepository.cs)
+- [MySqlConnectionFactory.cs](../src/NotificationSystem.Data/Persistence/MySqlConnectionFactory.cs)
 
 Mục tiêu:
 
@@ -109,9 +109,9 @@ Mục tiêu:
 
 Đọc:
 
-- [docker-compose.yml](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docker-compose.yml)
-- [nginx.conf](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/deploy/nginx/nginx.conf)
-- [ThirdParty-Preparation.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/ThirdParty-Preparation.md)
+- [docker-compose.yml](../docker-compose.yml)
+- [nginx.conf](../deploy/nginx/nginx.conf)
+- [ThirdParty-Preparation.md](../docs/ThirdParty-Preparation.md)
 
 Mục tiêu:
 
@@ -125,41 +125,41 @@ Mục tiêu:
 
 Đọc trước:
 
-- [Contracts.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Models/Contracts.cs)
-- [Program.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Api/Program.cs)
-- [MySqlNotificationRepository.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Data/Persistence/MySqlNotificationRepository.cs)
+- [Contracts.cs](../src/NotificationSystem.Shared/Models/Contracts.cs)
+- [Program.cs](../src/NotificationSystem.Api/Program.cs)
+- [MySqlNotificationRepository.cs](../src/NotificationSystem.Data/Persistence/MySqlNotificationRepository.cs)
 
 ### Thay fake provider bằng provider thật
 
 Đọc trước:
 
-- [FakeNotificationProviders.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/FakeNotificationProviders.cs)
-- [ChannelDeliveryService.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/ChannelDeliveryService.cs)
-- [ThirdParty-Preparation.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/ThirdParty-Preparation.md)
+- [FakeNotificationProviders.cs](../src/NotificationSystem.Shared/Services/FakeNotificationProviders.cs)
+- [ChannelDeliveryService.cs](../src/NotificationSystem.Shared/Services/ChannelDeliveryService.cs)
+- [ThirdParty-Preparation.md](../docs/ThirdParty-Preparation.md)
 
 ### Sửa logic consent/rate limit
 
 Đọc trước:
 
-- [NotificationProcessingService.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/NotificationProcessingService.cs)
-- [RedisRateLimiter.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/RedisRateLimiter.cs)
-- [MySqlNotificationRepository.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Data/Persistence/MySqlNotificationRepository.cs)
+- [NotificationProcessingService.cs](../src/NotificationSystem.Shared/Services/NotificationProcessingService.cs)
+- [RedisRateLimiter.cs](../src/NotificationSystem.Shared/Services/RedisRateLimiter.cs)
+- [MySqlNotificationRepository.cs](../src/NotificationSystem.Data/Persistence/MySqlNotificationRepository.cs)
 
 ### Sửa flow retry/DLQ
 
 Đọc trước:
 
-- [ChannelDeliveryService.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/ChannelDeliveryService.cs)
-- [TopicNameResolver.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/TopicNameResolver.cs)
-- [NotificationFlowTests.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/tests/NotificationSystem.Tests/NotificationFlowTests.cs)
+- [ChannelDeliveryService.cs](../src/NotificationSystem.Shared/Services/ChannelDeliveryService.cs)
+- [TopicNameResolver.cs](../src/NotificationSystem.Shared/Services/TopicNameResolver.cs)
+- [NotificationFlowTests.cs](../tests/NotificationSystem.Tests/NotificationFlowTests.cs)
 
 ## Cách đọc nhanh nhất nếu chỉ có 5 phút
 
 Đọc đúng 3 file này:
 
-1. [System-Components-Overview.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/System-Components-Overview.md)
-2. [Program.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Api/Program.cs)
-3. [ChannelDeliveryService.cs](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/src/NotificationSystem.Shared/Services/ChannelDeliveryService.cs)
+1. [System-Components-Overview.md](../docs/System-Components-Overview.md)
+2. [Program.cs](../src/NotificationSystem.Api/Program.cs)
+3. [ChannelDeliveryService.cs](../src/NotificationSystem.Shared/Services/ChannelDeliveryService.cs)
 
 Sau 3 file đó, bạn sẽ hiểu:
 
@@ -171,8 +171,8 @@ Sau 3 file đó, bạn sẽ hiểu:
 
 Nếu bạn sắp code vào repo, thứ tự khuyên đọc là:
 
-1. [README.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/README.md)
-2. [System-Components-Overview.md](/Users/ADMIN/Desktop/Projects/System-Designs/NotificationSystem/docs/System-Components-Overview.md)
+1. [README.md](../README.md)
+2. [System-Components-Overview.md](../docs/System-Components-Overview.md)
 3. README của đúng project bạn sắp sửa
 4. entrypoint `Program.cs` của project đó
 5. shared service hoặc repository mà project đó đang dùng
